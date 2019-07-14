@@ -1,14 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1337" />
+  <component name="ChangeListManager">
+    <list default="true" id="b9e162bf-8df1-41e6-8190-9c5ca30921a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../kipfin/kipfin.core/update.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/API/KFWebApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/API/KFWebApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission/AnalyzerSummary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission/AnalyzerSummary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission/Specialization.ts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission/SpecializationCounter.ts.txt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../kipfin/kipfin.core" />
+  </component>
+  <component name="ProjectId" id="1NpYaIkmVYjusfHzkDGWgtQOQxH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../kipfin/kipfin.admin/src/core" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.admin/src/core" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.admission/html" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Utils" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.core/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.admission" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.core/src/Admission" />
+      <recent name="$PROJECT_DIR$/../../kipfin" />
+      <recent name="$PROJECT_DIR$/../../kipfin/" />
+      <recent name="$PROJECT_DIR$/../../kipfin/kipfin.admission.app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9e162bf-8df1-41e6-8190-9c5ca30921a8" name="Default Changelist" comment="" />
+      <created>1562080942580</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562080942580</updated>
+      <workItem from="1562080949559" duration="19256000" />
+      <workItem from="1562187325461" duration="16347000" />
+      <workItem from="1562342714316" duration="94000" />
+      <workItem from="1562779578028" duration="48207000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1562857849803</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562857849803</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update">
+      <created>1562878721182</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1562878721182</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>

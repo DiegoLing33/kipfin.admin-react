@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/admin.kipfin.iml" filepath="$PROJECT_DIR$/.idea/admin.kipfin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../kipfin/kipfin.admin/.idea/kipfin.admin.iml" filepath="$PROJECT_DIR$/../../kipfin/kipfin.admin/.idea/kipfin.admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../kipfin/kipfin.admission/.idea/kipfin.admission.iml" filepath="$PROJECT_DIR$/../../kipfin/kipfin.admission/.idea/kipfin.admission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../kipfin.core/.idea/kipfin.core.iml" filepath="$PROJECT_DIR$/../kipfin.core/.idea/kipfin.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../kipfin/kipfin.stat/.idea/kipfin.stat.iml" filepath="$PROJECT_DIR$/../../kipfin/kipfin.stat/.idea/kipfin.stat.iml" />
     </modules>
   </component>
 </project>
