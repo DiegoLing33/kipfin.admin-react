@@ -42,7 +42,7 @@ export default class TasksPage extends Component {
     addTaskButtonClick = () => {
         if (this.state.taskValue !== "") {
             GKFRequests.sendPOSTRequest("Admission/Tasks/Add", {
-                text: this.state.taskValue,
+                text: this.state.taskValue, user_id: Auth.me!.user_id
             }).then(response => {
                 if (response.ok) {
                     this.updateData();

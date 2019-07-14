@@ -33,7 +33,7 @@ const App: React.FC = () => {
             </Switch>
         </MainFrameView>
     );
-    if(Auth.GetHash() && Auth.GetLogin() && !!Auth.GetAccess()) return app;
+    if(Auth.GetToken()) return app;
     else return <LoginPage />
 };
 

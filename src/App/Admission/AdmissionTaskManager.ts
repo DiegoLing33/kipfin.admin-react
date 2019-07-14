@@ -1,4 +1,5 @@
 import GKFRequests, {GKFRequestsResponse} from "../GKFRequests";
+import Auth from "../Auth";
 
 export interface AdmissionTask {
     id: number;
@@ -47,7 +48,7 @@ export default class AdmissionTaskManager {
      */
     static sendTaskState(taskId: number, state: number, callback: (response: GKFRequestsResponse) => void){
         GKFRequests.sendPOSTRequest("Admission.Tasks.SetState", {
-            id: taskId, state
+            id: taskId, state, user_id: Auth.me!.user_id
         }).then(response => {
             callback(response);
         });

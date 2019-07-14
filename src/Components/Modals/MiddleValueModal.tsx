@@ -88,10 +88,10 @@ export default class MiddleValueModal extends Component<ModalProps> {
                        message={<div>Вводите оценки с новой строки или без пробелов в ряд - это не имеет значения.
                            При вводе, Вы можете использовать пробелы, если так будет удобней.
                        </div>}/>
-                <TextArea onChange={(e) => this.onInputHandler(e)} rows={10}/>
+                <TextArea onChange={(e) => this.onInputHandler(e)} rows={5}/>
                 <Divider>Информация</Divider>
                 <Spin tip={"Подсчёт..."} spinning={this.state.isCounting}>
-                    <Table pagination={false} bordered columns={[
+                    <Table showHeader={false} pagination={false} bordered columns={[
                         {
                             title: "Наименования",
                             dataIndex: "title",

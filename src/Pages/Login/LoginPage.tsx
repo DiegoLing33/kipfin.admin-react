@@ -1,8 +1,8 @@
 import {Component} from "react";
 import * as React from "react";
 import {Input, Icon, Button, Alert, notification} from "antd";
-import GKFRequests from "../../App/GKFRequests";
 import Auth from "../../App/Auth";
+import KFWebApi from "../../core/src/API/KFWebApi";
 
 /**
  * Страница входа
@@ -37,33 +37,29 @@ export default class LoginPage extends Component {
                         prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                         placeholder="Логин"
                         style={{marginBottom: 10}}
-                        onChange={(e)=>this.setState({login: e.target.value})}
+                        onChange={(e) => this.setState({login: e.target.value})}
                     />
                     <Input
                         prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                         type="password"
                         placeholder="Пароль"
                         style={{marginBottom: 10}}
-                        onChange={(e)=>this.setState({password: e.target.value})}
+                        onChange={(e) => this.setState({password: e.target.value})}
                     />
-                    <Button type="primary" block onClick={()=>{
-                        GKFRequests.sendPOSTRequest("Users/Login", {login: this.state.login, password: this.state.password})
-                            .then(response => {
-                               if(response.hash){
-                                   Auth.SaveHash(this.state.login, response.hash);
-                                   GKFRequests.sendGETRequest("Users/Me", {})
-                                       .then(response => {
-                                           if(response.ok){
-                                               Auth.SaveAccess(response.access);
-                                               window.location.reload();
-                                           }
-                                       });
-                               }else{
-                                   notification.open({
-                                       message: "Пользователь не найден",
-                                       icon: <Icon type={"meh"} />
-                                   });
-                               }
+                    <Button type="primary" block onClick={() => {
+                        KFWebApi.request("users.login")
+                            .argsGet({login: this.state.login, password: this.state.password})
+                            .send()
+                            .then(resp => {
+                                if (resp.ok) {
+                                    Auth.SaveToken(resp.token);
+                                    window.location.reload();
+                                }else{
+                                    notification.open({
+                                        message: "Пользователь не найден",
+                                        icon: <Icon type={"meh"}/>
+                                    });
+                                }
                             });
                     }}>
                         Войти

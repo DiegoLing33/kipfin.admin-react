@@ -69,8 +69,8 @@ export default class MainNavigation extends Component {
      * @param key
      */
     getMenuItem(item: IMenuItem, key: string): React.ReactNode {
-        let content: any = [<Icon type={item.icon}/>, <span>{item.title}</span>];
-        if(item.beta) content = <Badge count={"BETA"} offset={[30, 6]}>{content}</Badge>
+        let content: any = <span><Icon type={item.icon}/><span>{item.title}</span></span>;
+        if(item.beta) content = <Badge count={"BETA"} offset={[30, 6]}>{content}</Badge>;
 
         if (item.click) {
             return <Menu.Item key={key} onClick={() => item.click!()}>
@@ -103,16 +103,16 @@ export default class MainNavigation extends Component {
     getMenuItems(menuItems: Array<IMenuItem & IMenuGlobal>): React.ReactNode {
         return menuItems.map((value, index) => {
             if (value.items) {
-                return this.getMenuSection(value, `${index}`);
+                return this.getMenuSection(value, `s${index}`);
             } else {
-                return this.getMenuItem(value, `${index}`);
+                return this.getMenuItem(value, `mi${index}`);
             }
         });
     }
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
-            <Menu defaultOpenKeys={["1"]} selectable={false} theme="dark" mode="inline">
+            <Menu defaultOpenKeys={["s1"]} selectable={false} theme="dark" mode="inline">
                 {this.state.redirect !== "" ? <Redirect to={this.state.redirect}/> : ""}
                 {this.getMenuItems(this.menuItems as any)}
             </Menu>

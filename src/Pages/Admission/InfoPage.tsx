@@ -5,6 +5,7 @@ import GKFRequests from "../../App/GKFRequests";
 import {Redirect} from "react-router";
 import {ListPageSearch} from "./ListPage";
 import {Link} from "react-router-dom";
+import Auth from "../../App/Auth";
 
 /**
  * Страница с информацией о заявке
@@ -90,7 +91,7 @@ export default class InfoPage extends Component {
      * Removes the abitur
      */
     successAbitur() {
-        GKFRequests.sendGETRequest("Admission/Delete", {c: this.state.code})
+        GKFRequests.sendGETRequest("Admission/Delete", {c: this.state.code, user_id: Auth.me!.user_id})
             .then(() => this.setState({redirect: "/admission/list"}));
     }
 
