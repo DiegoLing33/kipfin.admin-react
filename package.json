@@ -12,6 +12,7 @@
     "less": "^3.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-highlight-words": "latest",
     "react-router-dom": "latest",
     "react-scripts": "3.0.1",
     "typescript": "^3.5.3",
@@ -39,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-highlight-words": "^0.16.0",
     "@types/react-router-dom": "^4.3.4",
     "@types/sha1": "^1.1.2",
     "sha1": "latest"

@@ -147,9 +147,10 @@ export default class AdmissionStatPage extends React.Component {
         const createBlock = (title: string, a: number, notMind: number, all: number,) => {
             return <Col span={8} style={{textAlign: "center"}}>
                 <div style={{marginBottom: 20}}>{title}</div>
-                <Progress type={"circle"} width={80} percent={(a + notMind) / all * 100}
+                <Progress successPercent={notMind} type={"circle"} width={80} percent={(a + notMind) / all * 100}
                           format={(p?: number) => Math.round(p || 0) + "%"}/>
                 <div style={{marginTop: 20}}>{a + notMind} / {all}</div>
+                {notMind > 0 ? <i style={{marginTop: 5}}>{notMind} из них<br />"бюджет / договор"</i> : ""}
             </Col>
         };
         let blocks: React.ReactNode[] = [];
@@ -166,7 +167,7 @@ export default class AdmissionStatPage extends React.Component {
                     </div>
                     <Row justify={"center"} align={"middle"}>
                         {createBlock("Бюджет", originals.freeCount, originals.notMindCount, plan.freeCount)}
-                        {createBlock("Договор", originals.paidCount, originals.notMindCount, plan.paidCount)}
+                        {createBlock("Договор", originals.paidCount, 0, plan.paidCount)}
                         {createBlock("Всего", originals.freeCount + originals.paidCount, originals.notMindCount, plan.freeCount + plan.paidCount)}
                     </Row>
                 </div>)

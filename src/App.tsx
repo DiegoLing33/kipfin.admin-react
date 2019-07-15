@@ -15,6 +15,7 @@ import ChangesPage from "./Pages/Admission/ChangesPage";
 import SpecialisationsListPage from "./Pages/Education/SpecialisationsListPage";
 import AdmissionPlanPage from "./Pages/Admission/AdmissionPlanPage";
 import AdmissionStatPage from "./Pages/Admission/AdmissionStatPage";
+import AdmissionTablePage from "./Pages/Admission/AdmissionTablePage";
 
 const App: React.FC = () => {
     const app = (
@@ -30,6 +31,7 @@ const App: React.FC = () => {
                 <Route exact path={"/admission/plan"} component={AdmissionPlanPage}/>
                 <Route exact path={"/users"} component={UsersList}/>
                 <Route exact path={"/education/specialisations"} component={SpecialisationsListPage}/>
+                <Route exact path={"/admission/table"} component={AdmissionTablePage}/>
             </Switch>
         </MainFrameView>
     );
