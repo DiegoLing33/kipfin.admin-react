@@ -33,7 +33,7 @@ export default class Auth {
     /**
      * Сохраняет хэш
      */
-    static SaveToken(token: string): void {
+    static SaveToken(token: string|any): void {
         let d = new Date();
         d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
         cookies.set("token", token, {path: "/", expires: d});

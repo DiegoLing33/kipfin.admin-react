@@ -1,7 +1,7 @@
 import * as React from "react";
 import WrapperView from "../../Template/WrapperView";
 import {Spin, Table} from "antd";
-import Specialisation from "../../core/src/University/Specialisation";
+import Specialisation from "../../core/University/Specialisation";
 
 export default class SpecialisationsListPage extends React.Component {
     state = {

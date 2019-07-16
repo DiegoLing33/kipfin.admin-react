@@ -25,11 +25,11 @@
 
 import * as React from "react";
 import WrapperView from "../../Template/WrapperView";
-import AdmissionRequest, {AdmissionRequestProps} from "../../core/src/Admission/AdmissionRequest";
+import AdmissionRequest, {AdmissionRequestProps} from "../../core/Admission/AdmissionRequest";
 import {Button, Icon, Input, Table} from "antd";
 import Highlighter from "react-highlight-words";
-import Specialisation, {ISpecialisation} from "../../core/src/University/Specialisation";
-import {AConditions} from "../../core/src/Admission/AConditions";
+import Specialisation, {ISpecialisation} from "../../core/University/Specialisation";
+import {AConditions} from "../../core/Admission/AConditions";
 
 interface IAdmissionTablePageStates {
     dataSource: any,

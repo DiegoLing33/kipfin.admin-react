@@ -3,6 +3,7 @@ import * as React from "react";
 import WrapperView from "../Template/WrapperView";
 import {Button, Divider} from "antd";
 import Auth from "../App/Auth";
+import {Routing} from "../App";
 
 const instyles: {[name: string]: CSSProperties} = {
     updateTitle: {
@@ -24,7 +25,7 @@ export default class IndexPage extends Component{
         return (
             <WrapperView title={"Панель управления"}>
                 Здесь пока что пусто. Однако, отсюда Вы можете покинуть Ваш аккакунт.<br/><br/>
-                <Button onClick={()=>{Auth.SaveAccess("0"); window.location.reload()}}>Выйти из системы</Button>
+                <Button onClick={()=>{Auth.SaveToken(""); window.location.reload()}}>Выйти из системы</Button>
                 <Divider>Обновления</Divider>
                 <div>
                     <div style={instyles.updateTitle} >Версия: 1.2.0</div>

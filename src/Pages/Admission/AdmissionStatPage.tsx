@@ -1,11 +1,11 @@
 import * as React from "react";
 import WrapperView from "../../Template/WrapperView";
-import AdmissionPlan from "../../core/src/Admission/AdmissionPlan";
-import Specialisation from "../../core/src/University/Specialisation";
-import {IAnalyzerSummary} from "../../core/src/Admission/AnalyzerSummary";
+import AdmissionPlan from "../../core/Admission/AdmissionPlan";
+import Specialisation from "../../core/University/Specialisation";
+import {IAnalyzerSummary} from "../../core/Admission/AnalyzerSummary";
 import {Col, Divider, Progress, Row, Spin, Table} from "antd";
-import DateUtils from "../../core/src/DateUtils/DateUtils";
-import StringNumberUtils from "../../core/src/Utils/StringNumberUtils";
+import DateUtils from "../../core/DateUtils/DateUtils";
+import StringNumberUtils from "../../core/Utils/StringNumberUtils";
 
 
 export default class AdmissionStatPage extends React.Component {

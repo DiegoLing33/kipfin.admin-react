@@ -8,7 +8,7 @@ export default class KFApi {
     /**
      * Настройка API
      */
-    static sharedAPIObject: any = KFWebApi;
+    static sharedAPIObject: any = KFWebApiRequest;
 
     /**
      * Преобразует приложение в NODE приложение

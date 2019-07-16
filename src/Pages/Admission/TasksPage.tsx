@@ -90,16 +90,13 @@ export default class TasksPage extends Component {
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
             <WrapperView title={"Задания"}>
-                {
-                    Auth.GetAccess() > 10 ?
-                        <div>
-                            <Divider>Добавить задание</Divider>
-                            <TextArea rows={3} placeholder={"Введите задание"} style={{marginBottom: 10}}
-                                      onChange={(e) => this.setState({taskValue: e.target.value})}/>
-                            <Button onClick={this.addTaskButtonClick} block type={"primary"}
-                                    icon={"plus"}>Добавить</Button>
-                        </div> : ""
-                }
+                <div>
+                    <Divider>Добавить задание</Divider>
+                    <TextArea rows={3} placeholder={"Введите задание"} style={{marginBottom: 10}}
+                              onChange={(e) => this.setState({taskValue: e.target.value})}/>
+                    <Button onClick={this.addTaskButtonClick} block type={"primary"}
+                            icon={"plus"}>Добавить</Button>
+                </div>
                 <Divider>Задания для секретарей</Divider>
                 <div style={{textAlign: "center", paddingBottom: 15}}>{this.state.updateTime}</div>
                 <List bordered style={{marginBottom: 20}}>

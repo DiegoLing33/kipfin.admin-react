@@ -2,7 +2,8 @@ import {Component} from "react";
 import * as React from "react";
 import {Input, Icon, Button, Alert, notification} from "antd";
 import Auth from "../../App/Auth";
-import KFWebApi from "../../core/src/API/KFWebApi";
+import KFWebApi from "../../core/API/KFWebApi";
+import User from "../../core/auth/User";
 
 /**
  * Страница входа
@@ -47,20 +48,15 @@ export default class LoginPage extends Component {
                         onChange={(e) => this.setState({password: e.target.value})}
                     />
                     <Button type="primary" block onClick={() => {
-                        KFWebApi.request("users.login")
-                            .argsGet({login: this.state.login, password: this.state.password})
-                            .send()
+                        User.login(this.state.login, this.state.password)
                             .then(resp => {
-                                if (resp.ok) {
-                                    Auth.SaveToken(resp.token);
-                                    window.location.reload();
-                                }else{
-                                    notification.open({
-                                        message: "Пользователь не найден",
-                                        icon: <Icon type={"meh"}/>
-                                    });
-                                }
+                               window.location.reload();
+                            }).catch(reason => {
+                            notification.open({
+                                message: reason,
+                                icon: <Icon type={"meh"}/>
                             });
+                        });
                     }}>
                         Войти
                     </Button>

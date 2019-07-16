@@ -4,6 +4,8 @@ import WrapperView from "../../Template/WrapperView";
 import {Button, Divider, Input, notification, Table} from "antd";
 import GKFRequests from "../../App/GKFRequests";
 import Auth from "../../App/Auth";
+import KFWebApi from "../../core/API/KFWebApi";
+import {Routing} from "../../App";
 
 /**
  * Список пользователей
@@ -21,15 +23,14 @@ export default class UsersList extends Component {
      * Обновляет данные
      */
     update() {
-        GKFRequests.sendGETRequest("Users/List", {})
-            .then((res: any) => {
-                this.setState({
-                    usersData: res.list.map((v: any) => {
-                        v.key = v.login;
-                        return v;
-                    })
-                });
+        KFWebApi.request("users.list").send().then(resp => {
+            this.setState({
+                usersData: resp.list.map((v: any) => {
+                    v.key = v.login;
+                    return v;
+                })
             });
+        });
     }
 
     componentDidMount(): void {
@@ -68,9 +69,10 @@ export default class UsersList extends Component {
                 }
                 <Divider>Список пользователей</Divider>
                 <Table bordered pagination={false} dataSource={this.state.usersData} columns={[
-                    {title: "#", dataIndex: "id", key: "id"},
-                    {title: "Пользователь", dataIndex: "login", key: "login"},
-                    {title: "AL", dataIndex: "access", key: "access"},
+                    {title: "ID", dataIndex: "user_id", key: "user_id"},
+                    {title: "Логин", dataIndex: "login", key: "login"},
+                    {title: "Имя", dataIndex: "name", key: "name"},
+                    {title: "Статус", dataIndex: "group.title", key: "group"},
                 ]}/>
             </WrapperView>
         );

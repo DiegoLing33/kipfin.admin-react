@@ -55,12 +55,12 @@ export default class MainNavigation extends Component {
                 {title: "Аудитории", link: "#", icon: "calendar"},
             ]
         },
-        {
-            title: "Инструменты",
-            items: [
-                {title: "Пользователи", link: "/users", icon: "usergroup-add"},
-            ]
-        }
+        // {
+        //     title: "Инструменты",
+        //     items: [
+        //         {title: "Пользователи", link: "/users", icon: "usergroup-add"},
+        //     ]
+        // }
     ];
 
     /**

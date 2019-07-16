@@ -1,8 +1,8 @@
 import * as React from "react";
 import WrapperView from "../../Template/WrapperView";
 import {Spin, Table} from "antd";
-import AdmissionPlan from "../../core/src/Admission/AdmissionPlan";
-import Specialisation from "../../core/src/University/Specialisation";
+import AdmissionPlan from "../../core/Admission/AdmissionPlan";
+import Specialisation from "../../core/University/Specialisation";
 
 export default class AdmissionPlanPage extends React.Component {
     state = {
