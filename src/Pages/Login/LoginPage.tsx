@@ -1,8 +1,6 @@
 import {Component} from "react";
 import * as React from "react";
 import {Input, Icon, Button, Alert, notification} from "antd";
-import Auth from "../../App/Auth";
-import KFWebApi from "../../core/API/KFWebApi";
 import User from "../../core/auth/User";
 
 /**

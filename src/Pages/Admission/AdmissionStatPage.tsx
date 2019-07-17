@@ -150,7 +150,6 @@ export default class AdmissionStatPage extends React.Component {
                 <Progress successPercent={notMind} type={"circle"} width={80} percent={(a + notMind) / all * 100}
                           format={(p?: number) => Math.round(p || 0) + "%"}/>
                 <div style={{marginTop: 20}}>{a + notMind} / {all}</div>
-                {notMind > 0 ? <i style={{marginTop: 5}}>{notMind} из них<br />"бюджет / договор"</i> : ""}
             </Col>
         };
         let blocks: React.ReactNode[] = [];
@@ -162,9 +161,7 @@ export default class AdmissionStatPage extends React.Component {
                 blocks.push(<div key={specialisation.key}
                                  style={{paddingBottom: 30, marginBottom: 30, borderBottom: "1px dashed #aaa"}}>
                     <div style={{fontSize: 24}}>{specialisation.name}</div>
-                    <div style={{padding: 15, opacity: 0.6, marginBottom: 30}}>
-                        В расчёт для каждого "Бюджет" и "Договор" прибавлены "Бюджет / Договор".
-                    </div>
+                    <div style={{padding: 15, opacity: 0.6, marginBottom: 15}} />
                     <Row justify={"center"} align={"middle"}>
                         {createBlock("Бюджет", originals.freeCount, originals.notMindCount, plan.freeCount)}
                         {createBlock("Договор", originals.paidCount, 0, plan.paidCount)}
@@ -190,10 +187,6 @@ export default class AdmissionStatPage extends React.Component {
                     </div>
                     {this.state.recount}
                     <Divider>Минимальный проходной балл</Divider>
-                    <div style={{padding: 15, opacity: 0.6, marginBottom: 15}}>
-                        Данная таблица построена из оригиналов и абитуриентов с условием "Бюджет / Договор".<br/>
-                        <b>Контрольное значение</b> - это номер абитуриента, замыкающего расчёт.
-                    </div>
                     {this.state.minimal}
                 </div>
             </Spin>

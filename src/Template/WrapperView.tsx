@@ -9,6 +9,9 @@ export interface WrapperViewProps {
     title?: string;
 }
 
+/**
+ * Разделитель контента
+ */
 export default class WrapperView extends Component<WrapperViewProps> {
 
     state = {

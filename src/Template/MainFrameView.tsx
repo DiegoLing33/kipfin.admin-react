@@ -17,7 +17,7 @@ export default class MainFrameView extends Component {
     };
 
     componentDidMount(): void {
-        User.updateMe(()=> this.setState({loading: false}));
+        User.updateMe(() => this.setState({loading: false}));
     }
 
     /**
@@ -25,18 +25,9 @@ export default class MainFrameView extends Component {
      */
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
-            <Layout style={{minHeight: window.innerHeight}}>
-                <Spin spinning={this.state.loading} tip={"Получение данных..."}>
-                    <Sider
-                        breakpoint="lg"
-                        collapsedWidth="0"
-                        onBreakpoint={broken => {
-                            // console.log(broken);
-                        }}
-                        onCollapse={(collapsed, type) => {
-                            // console.log(collapsed, type);
-                        }}
-                    >
+            <Spin spinning={this.state.loading} tip={"Получение данных..."}>
+                <Layout style={{minHeight: window.innerHeight}}>
+                    <Sider breakpoint="lg" collapsedWidth="0">
                         <div className="logo">
                             КИПФИН
                         </div>
@@ -44,8 +35,8 @@ export default class MainFrameView extends Component {
                     </Sider>
                     {this.state.loading ? "" : this.props.children}
                     <MiddleValueModal ref={(e: any) => MiddleValueModal.shared = e}/>
-                </Spin>
-            </Layout>
+                </Layout>
+            </Spin>
         );
     }
 }

@@ -28,6 +28,9 @@ export default class MainNavigation extends Component {
         redirect: "",
     };
 
+    /**
+     * Элементы меню
+     */
     menuItems: Array<IMenuItem | IMenuGlobal> = [
         {title: "Главная", icon: "appstore", link: "/"},
         {
@@ -40,6 +43,8 @@ export default class MainNavigation extends Component {
                 {title: "Задания", link: "/admission/tasks", icon: "fire"},
                 {title: "Средний балл", link: "", icon: "calculator", click: () => MiddleValueModal.shared!.present()},
                 {title: "План набора", link: "/admission/plan", icon: "database"},
+                {title: "Таблица", link: "/admission/profile", icon: "database", beta: true},
+                {title: "Абитуриент", link: "/admission/person", icon: "qq", beta: true},
             ]
         },
         {

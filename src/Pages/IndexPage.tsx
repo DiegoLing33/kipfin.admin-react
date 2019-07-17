@@ -3,7 +3,6 @@ import * as React from "react";
 import WrapperView from "../Template/WrapperView";
 import {Button, Divider} from "antd";
 import Auth from "../App/Auth";
-import {Routing} from "../App";
 
 const instyles: {[name: string]: CSSProperties} = {
     updateTitle: {
