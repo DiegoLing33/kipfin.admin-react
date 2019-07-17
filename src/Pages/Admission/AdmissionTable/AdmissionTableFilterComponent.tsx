@@ -39,7 +39,7 @@ export default function AdmissionTableFilterComponent(props: { table: AdmissionT
             <Divider>Фильтры</Divider>
             <Row gutter={16} style={{marginBottom: 20}}>
                 <Col span={24}>
-                    <List bordered header={"Сортировка по баллу"}>
+                    <List bordered header={"Фильтрация по баллу"}>
                         <List.Item>
                             <Input allowClear placeholder={"Минимальный балл"}
                                    onChange={(e) => props.table.setState({searchRateMin: e.target.value})}

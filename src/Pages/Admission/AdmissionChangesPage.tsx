@@ -5,11 +5,12 @@ import AdmissionRequestsManager, {IFormattedChangesArray} from "../../App/Admiss
 import {List, Table} from "antd";
 import {AdmissionRequestCondition} from "../../App/Admission/AdmissionRequest";
 import DateUtils from "../../App/DateUtils/DateUtils";
+import LingFilter from "../../ling/arrays/LingFilter";
 
 /**
  * Страница с изменениями
  */
-export default class ChangesPage extends Component {
+export default class AdmissionChangesPage extends Component {
 
     /**
      * Состояния
@@ -17,6 +18,8 @@ export default class ChangesPage extends Component {
     state = {
         dataSource: [],
     };
+
+    public loadedData: any[] = [];
 
     /**
      * Компонент загрузился
@@ -30,11 +33,12 @@ export default class ChangesPage extends Component {
      */
     update() {
         AdmissionRequestsManager.loadChanges(data => {
-            this.setState({dataSource: data.map(value => {
+            this.loadedData = data.map(value => {
                 // @ts-ignore
-                    value["key"] = value.name + value.change + value.date;
+                value["key"] = value.name + value.change + value.date;
                 return value;
-                })});
+            });
+            this.setState({dataSource: this.loadedData});
         });
     }
 
@@ -57,8 +61,21 @@ export default class ChangesPage extends Component {
         }
     }
 
+    handleChanges(f: any) {
+        const filter = new LingFilter(this.loadedData);
+        filter.filterEmpty();
+        this.setState({dataSource: filter.filter(f)});
+    }
+
     render(): React.ReactNode {
-        return <WrapperView title={"Изменения данных"}>
+        return <WrapperView title={"Изменения данных"} description={
+            <div>
+                <p>
+                    В данном разделе отображаются любые изменения в приёмной кампании. Например, здесь можно посмотреть,
+                    когда абитуриенты донесли оригиналы.
+                </p>
+            </div>
+        }>
             <List bordered style={{marginBottom: 20}}>
                 <List.Item>
                     <span>Всего изменений: {this.state.dataSource.length}</span>
@@ -68,14 +85,23 @@ export default class ChangesPage extends Component {
                         value.date === DateUtils.getToday().toLocaleDateString()).length}</span>
                 </List.Item>
             </List>
-            <Table bordered pagination={false} columns={[
-                {title: "ФИО", dataIndex: "name", key: "name"},
-                {title: "Дата", dataIndex: "date", key: "date"},
-                {title: "Изменено", dataIndex: "change", key: "change", render: this.getFieldName},
+            <Table onChange={(p, f) => this.handleChanges(f)} bordered pagination={false} columns={[
+                {title: "ФИО", dataIndex: "name", key: "name", width: "30%"},
+                {title: "Дата", dataIndex: "date", key: "date", width: "10%"},
+                {
+                    title: "Изменено", dataIndex: "change", key: "change", width: "15%",
+                    filters: [
+                        {text: "Аттестат", value: "original"},
+                        {text: "Балл", value: "rate"},
+                        {text: "Специальность", value: "spec"},
+                        {text: "Условия", value: "type"},
+                        ],
+                    render: this.getFieldName
+                },
                 {
                     title: "Описание",
                     dataIndex: "diff",
-                    key: "diff",
+                    key: "diff", width: "45%",
                     render: (text, record: IFormattedChangesArray) => {
                         switch (record.change) {
                             case "original":

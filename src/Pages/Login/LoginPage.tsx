@@ -1,7 +1,8 @@
 import {Component} from "react";
 import * as React from "react";
-import {Input, Icon, Button, Alert, notification} from "antd";
+import {Input, Icon, Button, notification} from "antd";
 import User from "../../core/auth/User";
+import HorizontalNavigationBar from "../../Template/Navigation/HorizontalNavigationBar";
 
 /**
  * Страница входа
@@ -16,6 +17,7 @@ export default class LoginPage extends Component {
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
             <div>
+                <HorizontalNavigationBar />
                 <div style={{maxWidth: "90%", width: 400, margin: "50px auto"}}>
                     <div style={{
                         textAlign: "center",
@@ -25,13 +27,7 @@ export default class LoginPage extends Component {
                     }}>
                         Авторизация
                     </div>
-                    <div style={{
-                        textAlign: "center",
-                        marginBottom: 10,
-                    }}>
-                        <Alert
-                            message={"С целью приватизации функционала портала KIPFIN была введена система пользователей."}/>
-                    </div>
+                    <img alt={""} style={{height: 170, display: "block", margin: "0 auto"}} src={"img/kipfin-table.jpg"} />
                     <Input
                         prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                         placeholder="Логин"

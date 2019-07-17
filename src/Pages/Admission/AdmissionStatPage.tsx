@@ -59,14 +59,6 @@ export default class AdmissionStatPage extends React.Component {
             this.updateDetailedBlocks();
             this.updateTodayBlock();
             this.updateMinimal();
-            // this.setState({
-            //     dataSource: this.plan.map((p: AdmissionPlan & any) => {
-            //         let spec = this.specs!.find(s => s.specId === p.specId)!;
-            //         p.all = p.paidCount + p.freeCount;
-            //         p.key = p.admissionId;
-            //         p.nowFree = this.analyze!.detailed.originals[spec.token()].freeCount;
-            //     }), loading: false
-            // });
             this.setState({loading: false});
         });
     }
@@ -161,7 +153,7 @@ export default class AdmissionStatPage extends React.Component {
                 blocks.push(<div key={specialisation.key}
                                  style={{paddingBottom: 30, marginBottom: 30, borderBottom: "1px dashed #aaa"}}>
                     <div style={{fontSize: 24}}>{specialisation.name}</div>
-                    <div style={{padding: 15, opacity: 0.6, marginBottom: 15}} />
+                    <div style={{padding: 15, opacity: 0.6, marginBottom: 15}}/>
                     <Row justify={"center"} align={"middle"}>
                         {createBlock("Бюджет", originals.freeCount, originals.notMindCount, plan.freeCount)}
                         {createBlock("Договор", originals.paidCount, 0, plan.paidCount)}
@@ -174,7 +166,16 @@ export default class AdmissionStatPage extends React.Component {
     }
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
-        return <WrapperView title={"Статистика приёмной кампаии"}>
+        return <WrapperView title={"Статистика приёмной кампании"} description={
+            <div>
+                <p>
+                    В данном разделе Вы можете увидеть ход приёмной кампании.
+                </p>
+                <p>
+                    По умолчанию здесь отображается статистика на сегодня и данные оригиналов.
+                </p>
+            </div>
+        }>
             <Spin tip={"Получение данных"} spinning={this.state.loading}>
                 <div style={{textAlign: "center"}}>
                     <Divider>Статистика на {DateUtils.getRusDateString(DateUtils.getToday())}</Divider>

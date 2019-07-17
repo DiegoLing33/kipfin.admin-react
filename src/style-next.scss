@@ -1,0 +1,20 @@
+$primary: #007d8c;
+$jumbotron-bg: tranparent;
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/jumbotron";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}

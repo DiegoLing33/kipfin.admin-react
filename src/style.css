@@ -20537,3 +20537,7 @@ div.ant-typography-edit-content {
 .header-date .weekday {
   font-size: 18px;
 }
+.header-date .group {
+  text-align: right;
+  font-size: 12px;
+}

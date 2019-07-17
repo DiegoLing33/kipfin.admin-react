@@ -144,8 +144,8 @@ export default class LingFilter {
             });
             return value;
         });
-        console.log(array);
-        console.log(filter);
+        // console.log(array);
+        // console.log(filter);
 
         return array.filter(value => {
             // Filtering keys

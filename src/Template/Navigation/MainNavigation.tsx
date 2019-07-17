@@ -1,10 +1,11 @@
 import {Component} from "react";
 import * as React from "react";
-import {Badge, Icon, Menu} from "antd";
+import {Icon, Menu, Tag} from "antd";
 import MiddleValueModal from "../../Components/Modals/MiddleValueModal";
 import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
 import SubMenu from "antd/lib/menu/SubMenu";
+import User from "../../core/auth/User";
 
 interface IMenuItem {
     link: string;
@@ -26,25 +27,25 @@ interface IMenuGlobal {
 export default class MainNavigation extends Component {
     state = {
         redirect: "",
+        menuItems: null
     };
 
     /**
      * Элементы меню
      */
     menuItems: Array<IMenuItem | IMenuGlobal> = [
-        {title: "Главная", icon: "appstore", link: "/"},
+        {title: "Главная", icon: "home", link: "/"},
         {
             title: "Приёмная кампания",
             items: [
-                {title: "Абитуриенты", link: "/admission/list", icon: "reconciliation"},
+                {title: "Анкеты", link: "/admission/list", icon: "tablet"},
                 {title: "Статистика", link: "/admission/stat", icon: "bar-chart"},
                 {title: "Статистика", link: "/admission/newstat", icon: "schedule", beta: true},
                 {title: "Изменения данных", link: "/admission/changes", icon: "solution"},
-                {title: "Задания", link: "/admission/tasks", icon: "fire"},
+                {title: "Сообщения", link: "/admission/errors", icon: "fire"},
                 {title: "Средний балл", link: "", icon: "calculator", click: () => MiddleValueModal.shared!.present()},
                 {title: "План набора", link: "/admission/plan", icon: "database"},
-                {title: "Таблица", link: "/admission/profile", icon: "database", beta: true},
-                {title: "Абитуриент", link: "/admission/person", icon: "qq", beta: true},
+                {title: "Абитуриенты", link: "/admission/table", icon: "contacts", beta: true},
             ]
         },
         {
@@ -60,13 +61,23 @@ export default class MainNavigation extends Component {
                 {title: "Аудитории", link: "#", icon: "calendar"},
             ]
         },
-        // {
-        //     title: "Инструменты",
-        //     items: [
-        //         {title: "Пользователи", link: "/users", icon: "usergroup-add"},
-        //     ]
-        // }
+        {title: "История версий", icon: "rocket", link: "/updates"},
+
     ];
+
+    componentDidMount(): void {
+        User.waitMe(()=>{
+            if(User.me!.group.checkAccess(256)){
+                this.menuItems.push(
+                    {title: "Пользователи", link: "/users", icon: "usergroup-add"},
+                )
+            }
+
+            this.setState({menuItems: this.getMenuItems(this.menuItems as any)});
+        });
+
+        this.setState({menuItems: this.getMenuItems(this.menuItems as any)});
+    }
 
     /**
      * Возвращает рекцию из элемента
@@ -75,7 +86,7 @@ export default class MainNavigation extends Component {
      */
     getMenuItem(item: IMenuItem, key: string): React.ReactNode {
         let content: any = <span><Icon type={item.icon}/><span>{item.title}</span></span>;
-        if(item.beta) content = <Badge count={"BETA"} offset={[30, 6]}>{content}</Badge>;
+        if(item.beta) content = <span>{content} <Tag color="#2db7f5">BETA</Tag></span>;
 
         if (item.click) {
             return <Menu.Item key={key} onClick={() => item.click!()}>
@@ -119,7 +130,7 @@ export default class MainNavigation extends Component {
         return (
             <Menu defaultOpenKeys={["s1"]} selectable={false} theme="dark" mode="inline">
                 {this.state.redirect !== "" ? <Redirect to={this.state.redirect}/> : ""}
-                {this.getMenuItems(this.menuItems as any)}
+                {this.state.menuItems}
             </Menu>
         );
     }

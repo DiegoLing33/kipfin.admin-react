@@ -22,7 +22,8 @@ export function ListPageSearch(props: { onFind: (code: string) => void }) {
         }
     };
     return <div style={{marginBottom: 20}}>
-        <div style={{marginBottom: 20, textAlign: "center", opacity: 0.5}}>Введите код абитуриента и нажмите Enter:</div>
+        <div style={{marginBottom: 20, textAlign: "center", opacity: 0.5}}>Введите код абитуриента и нажмите Enter:
+        </div>
         <Input onKeyDown={(e) => handleCode(e)} placeholder={"Код абитуриента"}/>
     </div>
 }
@@ -80,7 +81,16 @@ export default class ListPage extends Component {
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
-            <WrapperView title={"Список абитуриентов"}>
+            <WrapperView title={"Анкеты GO.KIPFIN.RU"} description={
+                <div>
+                    <p>
+                        Здесь отображается информация, введенная абитуриентами в GO.KIPFIN.RU.
+                    </p>
+                    <p>
+                        <b>Используйте код</b>, который Вам сообщил абитуриент для получения информации.
+                    </p>
+                </div>
+            }>
                 {this.state.redirect !== "" ? <Redirect to={this.state.redirect}/> : ""}
                 <ListPageSearch onFind={(code) => this.setState({redirect: "/admission/info/" + code})}/>
                 <div style={{textAlign: "center", paddingBottom: 20}}>{this.state.updateTime}</div>

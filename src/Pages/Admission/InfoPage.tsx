@@ -175,7 +175,19 @@ export default class InfoPage extends Component {
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         const data: any = this.state.data;
         return (
-            <WrapperView title={"Информация об абитуриенте"}>
+            <WrapperView title={"Информация об абитуриенте"}
+                         description={
+                             <div>
+                                 <p>
+                                     Здесь отображается информация, введенная конкретным абитуриентом в GO.KIPFIN.RU.
+                                 </p>
+                                 <p>
+                                     Не забудьте <b>Провести</b> заявление после звершения. Для этого используйте
+                                     специальную кнопку в низу страницы.
+                                 </p>
+                             </div>
+                         }
+            >
                 {this.state.redirect !== "" ? <Redirect to={this.state.redirect}/> : ""}
                 <ListPageSearch onFind={(code) => this.setState({redirect: "/admission/info/" + code})}/>
                 <div hidden={!this.state.isInProgress}>

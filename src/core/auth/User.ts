@@ -25,6 +25,19 @@ export interface IUser {
 export default class User {
 
     /**
+     * Ожидает загрузки пользователя
+     * @param callback
+     */
+    public static waitMe(callback: ()=>void){
+       const waiter = setInterval(()=>{
+           if(User.me !== undefined){
+               clearInterval(waiter);
+               callback();
+           }
+       }, 100);
+    }
+
+    /**
      * Возвращает true, если пользователь локально авторизирован
      */
     public static isLocalAuthorized() {
@@ -107,8 +120,8 @@ export default class User {
      */
     constructor(user: IUser) {
         this.userId = parseInt(String(user.user_id));
-        this.login = user.login;
-        this.name = user.name;
+        this.login = user.login || "Undefined";
+        this.name = user.name || "Unnamed";
         this.group = new Group(user.group);
     }
 
@@ -118,5 +131,19 @@ export default class User {
     public getName(): string {
         const parts = this.name.split(" ");
         return parts.length > 1 ? parts[1] : parts[0];
+    }
+
+    /**
+     * Возвращает сокращенное полное имя
+     */
+    public getFullShortName(): string{
+        const parts = this.name.split(" ");
+        if(parts.length === 3){
+            return parts[0] + " " + parts[1].substr(0, 1) + "." + parts[2].substr(0, 1) + "."
+        }else if(parts.length === 2){
+            return parts[0] + " " + parts[1].substr(0, 1) + "."
+        }else{
+            return parts[0];
+        }
     }
 }

@@ -1,9 +1,8 @@
 import {Component} from "react";
 import * as React from "react";
 import WrapperView from "../../Template/WrapperView";
-import {Button, Divider, Input, notification, Table} from "antd";
+import {Divider, notification, Table} from "antd";
 import GKFRequests from "../../App/GKFRequests";
-import Auth from "../../App/Auth";
 import KFWebApi from "../../core/API/KFWebApi";
 
 /**
@@ -55,23 +54,13 @@ export default class UsersList extends Component {
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
             <WrapperView title={"Пользователи"}>
-                {
-                    Auth.GetAccess() > 20 ?
-                        <div>
-                            <Divider>Добавление пользователя</Divider>
-                            <Input placeholder={"panovyv"} onChange={(e) => this.setState({newUserLogin: e.target.value})}
-                                   style={{marginBottom: 10}}/>
-                            <Input type={"password"} placeholder={"password"}
-                                   onChange={(e) => this.setState({newUserPassword: e.target.value})} style={{marginBottom: 10}}/>
-                            <Button block type={"primary"} onClick={this.addButtonClick}>Добавить</Button>
-                        </div> : ""
-                }
                 <Divider>Список пользователей</Divider>
                 <Table bordered pagination={false} dataSource={this.state.usersData} columns={[
                     {title: "ID", dataIndex: "user_id", key: "user_id"},
                     {title: "Логин", dataIndex: "login", key: "login"},
                     {title: "Имя", dataIndex: "name", key: "name"},
                     {title: "Статус", dataIndex: "group.title", key: "group"},
+                    {title: "Доступ", dataIndex: "group.access", key: "group_access"},
                 ]}/>
             </WrapperView>
         );
